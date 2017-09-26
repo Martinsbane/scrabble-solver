@@ -8,6 +8,7 @@
   },
   "scripts": {
     "build": "better-npm-run build",
+    "build:prod": "better-npm-run build:prod",
     "start": "better-npm-run start",
     "start:prod": "better-npm-run start:prod",
     "test": "better-npm-run test",
@@ -18,6 +19,14 @@
       "command": "rimraf dist && webpack",
       "env": {
         "NODE_ENV": "production"
+      }
+    },
+    "build:prod": {
+      "command": "rimraf dist && webpack",
+      "env": {
+        "NODE_ENV": "production",
+        "API_HOST": "http://kamilmielnik.pl",
+        "API_PORT": "5000"
       }
     },
     "start": {

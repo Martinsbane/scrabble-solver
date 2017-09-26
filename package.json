@@ -10,6 +10,7 @@
   },
   "scripts": {
     "build": "better-npm-run build",
+    "build:prod": "better-npm-run build:prod",
     "start": "npm-run-all --parallel start:* open",
     "start:backend": "better-npm-run start:backend",
     "start:frontend": "better-npm-run start:frontend",
@@ -21,6 +22,14 @@
   "betterScripts": {
     "build": {
       "command": "rimraf dist && babel-node scripts/build.js"
+    },
+    "build:prod": {
+      "command": "rimraf dist && babel-node scripts/build.js prod",
+      "env": {
+        "NODE_ENV": "production",
+        "API_HOST": "http://kamilmielnik.pl",
+        "API_PORT": "5000"
+      }
     },
     "start:backend": {
       "command": "node dist/scrabble-solver-backend/index.js dictionary.txt",
